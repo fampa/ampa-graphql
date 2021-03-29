@@ -15,6 +15,13 @@ CREATE TABLE public.articles_translations (
     title text NOT NULL,
     content text NOT NULL
 );
+
+CREATE OR REPLACE FUNCTION public.unaccent(text)
+ RETURNS text
+ LANGUAGE c
+ STABLE PARALLEL SAFE STRICT
+AS '$libdir/unaccent', $function$unaccent_dict$function$;
+
 CREATE FUNCTION public.slugmaker(articles_translations_row public.articles_translations) RETURNS text
     LANGUAGE sql STABLE
     AS $_$
@@ -46,6 +53,12 @@ CREATE FUNCTION public.slugmaker(articles_translations_row public.articles_trans
 CREATE TABLE public.article_statuses (
     status text NOT NULL
 );
+
+INSERT INTO public.article_statuses(status)
+VALUES ('DRAFT'),
+('PUBLISHED'),
+('DELETED');
+
 CREATE TABLE public.article_tags (
     article_id integer NOT NULL,
     tag_id integer NOT NULL
@@ -114,6 +127,11 @@ CREATE TABLE public.languages (
     code text NOT NULL,
     name text NOT NULL
 );
+
+INSERT INTO public.languages(code, name)
+VALUES ('ca', 'català/valencià'),
+('es', 'español');
+
 CREATE TABLE public.members (
     id text NOT NULL,
     firstname text,
