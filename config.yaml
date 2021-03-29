@@ -1,5 +1,5 @@
 version: 3
-endpoint: https://db.ampatacona.com
+endpoint: https://db.monjo.xyz
 metadata_directory: metadata
 actions:
   kind: synchronous
