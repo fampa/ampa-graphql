@@ -54,11 +54,6 @@ CREATE TABLE public.article_statuses (
     status text NOT NULL
 );
 
-INSERT INTO public.article_statuses(status)
-VALUES ('DRAFT'),
-('PUBLISHED'),
-('DELETED');
-
 CREATE TABLE public.article_tags (
     article_id integer NOT NULL,
     tag_id integer NOT NULL
@@ -127,10 +122,6 @@ CREATE TABLE public.languages (
     code text NOT NULL,
     name text NOT NULL
 );
-
-INSERT INTO public.languages(code, name)
-VALUES ('ca', 'català/valencià'),
-('es', 'español');
 
 CREATE TABLE public.members (
     id text NOT NULL,
