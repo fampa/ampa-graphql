@@ -1,0 +1,69 @@
+array_relationships:
+- name: articles
+  using:
+    foreign_key_constraint_on:
+      column: author_id
+      table:
+        name: articles
+        schema: public
+event_triggers:
+- definition:
+    enable_manual: true
+    update:
+      columns:
+      - isadmin
+  name: change_claims
+  retry_conf:
+    interval_sec: 100
+    num_retries: 3
+    timeout_sec: 60
+  webhook: https://server.ampatacona.com/webhook/change-claims
+object_relationships:
+- name: family
+  using:
+    manual_configuration:
+      column_mapping:
+        family_id: id
+      insertion_order: null
+      remote_table:
+        name: families
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - firstname
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - id
+    - firstname
+    - lastname
+    - email
+    - family_id
+    - created_at
+    - updated_at
+    - isadmin
+    filter:
+      id:
+        _eq: X-Hasura-User-Id
+  role: user
+table:
+  name: members
+  schema: public
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - isadmin
+    - family_id
+    - email
+    - firstname
+    - id
+    - lastname
+    - created_at
+    - updated_at
+    filter:
+      id:
+        _eq: X-Hasura-User-Id
+  role: user

@@ -1,0 +1,67 @@
+array_relationships:
+- name: article_tags
+  using:
+    foreign_key_constraint_on:
+      column: article_id
+      table:
+        name: article_tags
+        schema: public
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: article_id
+      table:
+        name: articles_translations
+        schema: public
+event_triggers:
+- definition:
+    enable_manual: false
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - status
+      - updated_at
+  name: new_blog_article
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: https://api.netlify.com/build_hooks/5f78804f6840275b93ceab07
+object_relationships:
+- name: article_status
+  using:
+    foreign_key_constraint_on: status
+- name: author
+  using:
+    foreign_key_constraint_on: author_id
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - status
+    - image
+    - author_id
+    filter:
+      status:
+        _eq: PUBLISHED
+  role: public
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - author_id
+    - image
+    - status
+    - created_at
+    - updated_at
+    filter:
+      status:
+        _eq: PUBLISHED
+  role: user
+table:
+  name: articles
+  schema: public

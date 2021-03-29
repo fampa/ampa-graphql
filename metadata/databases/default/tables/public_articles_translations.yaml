@@ -1,0 +1,38 @@
+computed_fields:
+- comment: ""
+  definition:
+    function:
+      name: slugmaker
+      schema: public
+  name: slug
+object_relationships:
+- name: article
+  using:
+    foreign_key_constraint_on: article_id
+- name: languageByLanguage
+  using:
+    foreign_key_constraint_on: language
+select_permissions:
+- permission:
+    columns:
+    - article_id
+    - language
+    - title
+    - content
+    computed_fields:
+    - slug
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - article_id
+    - content
+    - language
+    - title
+    computed_fields:
+    - slug
+    filter: {}
+  role: user
+table:
+  name: articles_translations
+  schema: public

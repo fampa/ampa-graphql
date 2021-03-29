@@ -1,0 +1,54 @@
+array_relationships:
+- name: children
+  using:
+    manual_configuration:
+      column_mapping:
+        id: family_id
+      insertion_order: null
+      remote_table:
+        name: children
+        schema: public
+- name: members
+  using:
+    manual_configuration:
+      column_mapping:
+        id: family_id
+      insertion_order: null
+      remote_table:
+        name: members
+        schema: public
+delete_permissions:
+- permission:
+    filter:
+      members:
+        id:
+          _eq: X-Hasura-User-Id
+  role: user
+select_permissions:
+- permission:
+    columns:
+    - id
+    - name
+    - created_at
+    - updated_at
+    filter:
+      members:
+        id:
+          _eq: X-Hasura-User-Id
+  role: user
+table:
+  name: families
+  schema: public
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - id
+    - name
+    - created_at
+    - updated_at
+    filter:
+      members:
+        id:
+          _eq: X-Hasura-User-Id
+  role: user

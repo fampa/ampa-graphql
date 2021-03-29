@@ -1,0 +1,19 @@
+array_relationships:
+- name: articles_translations
+  using:
+    foreign_key_constraint_on:
+      column: language
+      table:
+        name: articles_translations
+        schema: public
+is_enum: true
+select_permissions:
+- permission:
+    columns:
+    - code
+    - name
+    filter: {}
+  role: user
+table:
+  name: languages
+  schema: public
