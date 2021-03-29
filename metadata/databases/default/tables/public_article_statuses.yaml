@@ -1,12 +1,14 @@
-array_relationships:
-- name: articles
-  using:
-    foreign_key_constraint_on:
-      column: status
-      table:
-        name: articles
-        schema: public
-is_enum: true
+select_permissions:
+- permission:
+    columns:
+    - status
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - status
+    filter: {}
+  role: user
 table:
   name: article_statuses
   schema: public

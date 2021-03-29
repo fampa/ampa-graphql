@@ -9,9 +9,6 @@ object_relationships:
 - name: article
   using:
     foreign_key_constraint_on: article_id
-- name: languageByLanguage
-  using:
-    foreign_key_constraint_on: language
 select_permissions:
 - permission:
     columns:

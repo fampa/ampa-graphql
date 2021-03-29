@@ -29,9 +29,6 @@ event_triggers:
     timeout_sec: 60
   webhook: https://api.netlify.com/build_hooks/5f78804f6840275b93ceab07
 object_relationships:
-- name: article_status
-  using:
-    foreign_key_constraint_on: status
 - name: author
   using:
     foreign_key_constraint_on: author_id
