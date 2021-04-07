@@ -1,3 +1,6 @@
+table:
+  name: article_tags
+  schema: public
 object_relationships:
 - name: article
   using:
@@ -18,6 +21,3 @@ select_permissions:
     - tag_id
     filter: {}
   role: user
-table:
-  name: article_tags
-  schema: public

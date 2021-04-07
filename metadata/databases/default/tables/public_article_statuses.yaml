@@ -1,3 +1,6 @@
+table:
+  name: article_statuses
+  schema: public
 select_permissions:
 - permission:
     columns:
@@ -9,6 +12,3 @@ select_permissions:
     - status
     filter: {}
   role: user
-table:
-  name: article_statuses
-  schema: public

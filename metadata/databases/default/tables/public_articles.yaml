@@ -1,3 +1,10 @@
+table:
+  name: articles
+  schema: public
+object_relationships:
+- name: author
+  using:
+    foreign_key_constraint_on: author_id
 array_relationships:
 - name: article_tags
   using:
@@ -13,25 +20,6 @@ array_relationships:
       table:
         name: articles_translations
         schema: public
-event_triggers:
-- definition:
-    enable_manual: false
-    insert:
-      columns: "*"
-    update:
-      columns:
-      - status
-      - updated_at
-  name: new_blog_article
-  retry_conf:
-    interval_sec: 10
-    num_retries: 0
-    timeout_sec: 60
-  webhook: https://api.netlify.com/build_hooks/5f78804f6840275b93ceab07
-object_relationships:
-- name: author
-  using:
-    foreign_key_constraint_on: author_id
 select_permissions:
 - permission:
     allow_aggregations: true
@@ -59,6 +47,18 @@ select_permissions:
       status:
         _eq: PUBLISHED
   role: user
-table:
-  name: articles
-  schema: public
+event_triggers:
+- definition:
+    enable_manual: false
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - status
+      - updated_at
+  name: new_blog_article
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: https://api.netlify.com/build_hooks/5f78804f6840275b93ceab07

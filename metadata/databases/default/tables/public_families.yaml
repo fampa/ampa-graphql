@@ -1,3 +1,6 @@
+table:
+  name: families
+  schema: public
 array_relationships:
 - name: children
   using:
@@ -17,13 +20,6 @@ array_relationships:
       remote_table:
         name: members
         schema: public
-delete_permissions:
-- permission:
-    filter:
-      members:
-        id:
-          _eq: X-Hasura-User-Id
-  role: user
 select_permissions:
 - permission:
     columns:
@@ -36,9 +32,6 @@ select_permissions:
         id:
           _eq: X-Hasura-User-Id
   role: user
-table:
-  name: families
-  schema: public
 update_permissions:
 - permission:
     check: null
@@ -47,6 +40,13 @@ update_permissions:
     - name
     - created_at
     - updated_at
+    filter:
+      members:
+        id:
+          _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
     filter:
       members:
         id:

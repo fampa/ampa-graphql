@@ -1,3 +1,6 @@
+table:
+  name: languages
+  schema: public
 select_permissions:
 - permission:
     columns:
@@ -11,6 +14,3 @@ select_permissions:
     - name
     filter: {}
   role: user
-table:
-  name: languages
-  schema: public

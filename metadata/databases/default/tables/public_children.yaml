@@ -1,11 +1,16 @@
-delete_permissions:
-- permission:
-    filter:
-      family:
-        members:
-          id:
-            _eq: X-Hasura-User-Id
-  role: user
+table:
+  name: children
+  schema: public
+object_relationships:
+- name: family
+  using:
+    manual_configuration:
+      column_mapping:
+        family_id: id
+      insertion_order: null
+      remote_table:
+        name: families
+        schema: public
 insert_permissions:
 - permission:
     backend_only: false
@@ -23,16 +28,6 @@ insert_permissions:
     - created_at
     - updated_at
   role: user
-object_relationships:
-- name: family
-  using:
-    manual_configuration:
-      column_mapping:
-        family_id: id
-      insertion_order: null
-      remote_table:
-        name: families
-        schema: public
 select_permissions:
 - permission:
     columns:
@@ -49,9 +44,6 @@ select_permissions:
           id:
             _eq: X-Hasura-User-Id
   role: user
-table:
-  name: children
-  schema: public
 update_permissions:
 - permission:
     check: null
@@ -63,6 +55,14 @@ update_permissions:
     - lastname
     - created_at
     - updated_at
+    filter:
+      family:
+        members:
+          id:
+            _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
     filter:
       family:
         members:
