@@ -2,6 +2,9 @@ table:
   name: articles
   schema: public
 object_relationships:
+- name: article_status
+  using:
+    foreign_key_constraint_on: status
 - name: author
   using:
     foreign_key_constraint_on: author_id

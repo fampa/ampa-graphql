@@ -1,6 +1,14 @@
 table:
   name: languages
   schema: public
+array_relationships:
+- name: articles_translations
+  using:
+    foreign_key_constraint_on:
+      column: language
+      table:
+        name: articles_translations
+        schema: public
 select_permissions:
 - permission:
     columns:
