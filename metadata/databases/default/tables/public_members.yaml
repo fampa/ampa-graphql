@@ -27,14 +27,15 @@ select_permissions:
   role: public
 - permission:
     columns:
-    - id
-    - firstname
-    - lastname
+    - created_at
     - email
     - family_id
-    - created_at
-    - updated_at
+    - firstname
+    - id
     - isadmin
+    - lastname
+    - phone
+    - updated_at
     filter:
       id:
         _eq: X-Hasura-User-Id
@@ -43,13 +44,14 @@ update_permissions:
 - permission:
     check: null
     columns:
-    - isadmin
-    - family_id
+    - created_at
     - email
+    - family_id
     - firstname
     - id
+    - isadmin
     - lastname
-    - created_at
+    - phone
     - updated_at
     filter:
       id:
