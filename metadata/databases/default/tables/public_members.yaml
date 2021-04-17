@@ -6,7 +6,7 @@ object_relationships:
   using:
     manual_configuration:
       column_mapping:
-        family_id: id
+        familyId: id
       insertion_order: null
       remote_table:
         name: families
@@ -22,20 +22,21 @@ array_relationships:
 select_permissions:
 - permission:
     columns:
-    - firstname
+    - firstName
     filter: {}
   role: public
 - permission:
+    allow_aggregations: true
     columns:
-    - created_at
+    - createdAt
     - email
-    - family_id
-    - firstname
+    - familyId
+    - firstName
     - id
-    - isadmin
-    - lastname
+    - isAdmin
+    - lastName
     - phone
-    - updated_at
+    - updateAt
     filter:
       id:
         _eq: X-Hasura-User-Id
@@ -44,15 +45,15 @@ update_permissions:
 - permission:
     check: null
     columns:
-    - created_at
+    - createdAt
     - email
-    - family_id
-    - firstname
+    - familyId
+    - firstName
     - id
-    - isadmin
-    - lastname
+    - isAdmin
+    - lastName
     - phone
-    - updated_at
+    - updateAt
     filter:
       id:
         _eq: X-Hasura-User-Id
@@ -62,7 +63,7 @@ event_triggers:
     enable_manual: true
     update:
       columns:
-      - isadmin
+      - isAdmin
   name: change_claims
   retry_conf:
     interval_sec: 100

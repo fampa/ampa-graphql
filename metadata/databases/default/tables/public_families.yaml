@@ -6,7 +6,7 @@ array_relationships:
   using:
     manual_configuration:
       column_mapping:
-        id: family_id
+        id: familyId
       insertion_order: null
       remote_table:
         name: children
@@ -15,7 +15,7 @@ array_relationships:
   using:
     manual_configuration:
       column_mapping:
-        id: family_id
+        id: familyId
       insertion_order: null
       remote_table:
         name: members

@@ -6,7 +6,7 @@ object_relationships:
   using:
     manual_configuration:
       column_mapping:
-        family_id: id
+        familyId: id
       insertion_order: null
       remote_table:
         name: families
@@ -21,23 +21,23 @@ insert_permissions:
             _eq: X-Hasura-User-Id
     columns:
     - id
-    - firstname
-    - lastname
-    - birthyear
-    - family_id
-    - created_at
-    - updated_at
+    - firstName
+    - lastName
+    - birthYear
+    - familyId
+    - createdAt
+    - updatedAt
   role: user
 select_permissions:
 - permission:
     columns:
-    - birthyear
-    - family_id
+    - birthYear
+    - familyId
     - id
-    - firstname
-    - lastname
-    - created_at
-    - updated_at
+    - firstName
+    - lastName
+    - createdAt
+    - updatedAt
     filter:
       family:
         members:
@@ -48,13 +48,13 @@ update_permissions:
 - permission:
     check: null
     columns:
-    - birthyear
-    - family_id
+    - birthYear
+    - familyId
     - id
-    - firstname
-    - lastname
-    - created_at
-    - updated_at
+    - firstName
+    - lastName
+    - createdAt
+    - updatedAt
     filter:
       family:
         members:
