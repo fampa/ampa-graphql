@@ -7,7 +7,7 @@ object_relationships:
     foreign_key_constraint_on: status
 - name: author
   using:
-    foreign_key_constraint_on: author_id
+    foreign_key_constraint_on: authorId
 array_relationships:
 - name: article_tags
   using:
@@ -19,7 +19,7 @@ array_relationships:
 - name: translations
   using:
     foreign_key_constraint_on:
-      column: article_id
+      column: articleId
       table:
         name: articles_translations
         schema: public
@@ -28,11 +28,11 @@ select_permissions:
     allow_aggregations: true
     columns:
     - id
-    - created_at
-    - updated_at
+    - createdAt
+    - updatedAt
     - status
     - image
-    - author_id
+    - authorId
     filter:
       status:
         _eq: PUBLISHED
@@ -41,11 +41,11 @@ select_permissions:
     allow_aggregations: true
     columns:
     - id
-    - author_id
+    - authorId
     - image
     - status
-    - created_at
-    - updated_at
+    - createdAt
+    - updatedAt
     filter:
       status:
         _eq: PUBLISHED
@@ -58,7 +58,7 @@ event_triggers:
     update:
       columns:
       - status
-      - updated_at
+      - updatedAt
   name: new_blog_article
   retry_conf:
     interval_sec: 10

@@ -15,7 +15,7 @@ array_relationships:
 - name: articles
   using:
     foreign_key_constraint_on:
-      column: author_id
+      column: authorId
       table:
         name: articles
         schema: public
@@ -37,7 +37,7 @@ select_permissions:
     - lastName
     - nif
     - phone
-    - updateAt
+    - updatedAt
     filter:
       id:
         _eq: X-Hasura-User-Id
@@ -55,7 +55,7 @@ update_permissions:
     - lastName
     - nif
     - phone
-    - updateAt
+    - updatedAt
     filter:
       id:
         _eq: X-Hasura-User-Id

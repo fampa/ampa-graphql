@@ -13,14 +13,14 @@ select_permissions:
 - permission:
     columns:
     - id
-    - name_ca
-    - name_es
+    - nameCa
+    - nameEs
     filter: {}
   role: public
 - permission:
     columns:
     - id
-    - name_ca
-    - name_es
+    - nameCa
+    - nameEs
     filter: {}
   role: user
