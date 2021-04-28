@@ -34,10 +34,8 @@ select_permissions:
 - permission:
     allow_aggregations: true
     columns:
-    - createdAt
     - id
     - name
-    - updatedAt
     filter: {}
   role: public
 - permission:
@@ -50,9 +48,10 @@ update_permissions:
 - permission:
     check: null
     columns:
+    - createdAt
+    - iban
     - id
     - name
-    - createdAt
     - updatedAt
     filter:
       members:
