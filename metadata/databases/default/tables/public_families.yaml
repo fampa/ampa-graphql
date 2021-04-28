@@ -20,17 +20,31 @@ array_relationships:
       remote_table:
         name: members
         schema: public
-select_permissions:
+insert_permissions:
 - permission:
+    backend_only: false
+    check: {}
     columns:
     - id
     - name
     - createdAt
     - updatedAt
-    filter:
-      members:
-        id:
-          _eq: X-Hasura-User-Id
+  role: user
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - createdAt
+    - id
+    - name
+    - updatedAt
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - id
+    - name
+    filter: {}
   role: user
 update_permissions:
 - permission:

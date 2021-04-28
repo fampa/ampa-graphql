@@ -23,6 +23,7 @@ select_permissions:
 - permission:
     columns:
     - firstName
+    - id
     filter: {}
   role: public
 - permission:

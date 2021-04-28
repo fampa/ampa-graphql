@@ -30,6 +30,18 @@ insert_permissions:
   role: user
 select_permissions:
 - permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - firstName
+    - lastName
+    - familyId
+    - createdAt
+    - updatedAt
+    - birthDate
+    filter: {}
+  role: public
+- permission:
     columns:
     - birthDate
     - createdAt
@@ -38,11 +50,7 @@ select_permissions:
     - id
     - lastName
     - updatedAt
-    filter:
-      family:
-        members:
-          id:
-            _eq: X-Hasura-User-Id
+    filter: {}
   role: user
 update_permissions:
 - permission:
