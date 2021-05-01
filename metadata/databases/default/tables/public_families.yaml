@@ -46,7 +46,6 @@ select_permissions:
     - createdAt
     - iban
     - id
-    - joinRequests
     - name
     - owner
     - updatedAt
@@ -62,7 +61,6 @@ update_permissions:
     - createdAt
     - iban
     - id
-    - joinRequests
     - name
     - updatedAt
     filter:
