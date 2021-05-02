@@ -33,6 +33,7 @@ select_permissions:
     - email
     - familyId
     - firstName
+    - hasRequestedJoinFamily
     - id
     - isAdmin
     - joinFamilyRequest
@@ -52,6 +53,7 @@ update_permissions:
     - email
     - familyId
     - firstName
+    - hasRequestedJoinFamily
     - id
     - isAdmin
     - joinFamilyRequest

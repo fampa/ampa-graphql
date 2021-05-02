@@ -30,7 +30,7 @@ insert_permissions:
     - createdAt
     - updatedAt
     set:
-      owner: x-hasura-User-Id
+      ownerId: x-hasura-User-Id
   role: user
 select_permissions:
 - permission:
@@ -38,7 +38,7 @@ select_permissions:
     columns:
     - id
     - name
-    - owner
+    - ownerId
     filter: {}
   role: public
 - permission:
@@ -47,7 +47,7 @@ select_permissions:
     - iban
     - id
     - name
-    - owner
+    - ownerId
     - updatedAt
     filter:
       members:
