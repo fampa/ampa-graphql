@@ -12,6 +12,8 @@ Ara deurem de deshabilitar l'accés web a la consola. ho podem fer amb una varia
 
 Instal·lem [Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html#install-hasura-cli)
 
+`npm install --global hasura-cli`
+
 Editem el fitxer `config.yaml` i canviem l'apartat endpoint pel del nostre servidor.
 
 Reanomeneu el fitxer `.env.example` a `.env` i introduïu la contrasenya d'administrador que heu configurat durant la instal·lació.
