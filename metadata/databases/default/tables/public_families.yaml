@@ -25,12 +25,12 @@ insert_permissions:
     backend_only: false
     check: {}
     columns:
+    - createdAt
+    - iban
     - id
     - name
-    - createdAt
+    - ownerId
     - updatedAt
-    set:
-      ownerId: x-hasura-User-Id
   role: user
 select_permissions:
 - permission:
@@ -62,6 +62,7 @@ update_permissions:
     - iban
     - id
     - name
+    - ownerId
     - updatedAt
     filter:
       members:
