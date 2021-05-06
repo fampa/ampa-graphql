@@ -1,0 +1,34 @@
+table:
+  name: services
+  schema: public
+object_relationships:
+- name: type
+  using:
+    foreign_key_constraint_on: typeId
+select_permissions:
+- permission:
+    columns:
+    - id
+    - name
+    - typeId
+    - description
+    - periodicity
+    - price
+    - isAvailable
+    - createdAt
+    - updatedAt
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - isAvailable
+    - id
+    - typeId
+    - price
+    - description
+    - name
+    - periodicity
+    - createdAt
+    - updatedAt
+    filter: {}
+  role: user

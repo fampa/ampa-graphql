@@ -6,4 +6,6 @@
 - "!include public_families.yaml"
 - "!include public_languages.yaml"
 - "!include public_members.yaml"
+- "!include public_service_types.yaml"
+- "!include public_services.yaml"
 - "!include public_tags.yaml"
