@@ -1,0 +1,36 @@
+table:
+  name: pages
+  schema: public
+array_relationships:
+- name: translations
+  using:
+    manual_configuration:
+      column_mapping:
+        id: pageId
+      insertion_order: null
+      remote_table:
+        name: pages_translations
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - id
+    - status
+    - image
+    - createdAt
+    - updatedAt
+    filter:
+      status:
+        _eq: PUBLISHED
+  role: public
+- permission:
+    columns:
+    - id
+    - image
+    - status
+    - createdAt
+    - updatedAt
+    filter:
+      status:
+        _eq: PUBLISHED
+  role: user
