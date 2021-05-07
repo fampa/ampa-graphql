@@ -11,6 +11,16 @@ object_relationships:
       remote_table:
         name: families
         schema: public
+array_relationships:
+- name: hiredServices
+  using:
+    manual_configuration:
+      column_mapping:
+        id: childId
+      insertion_order: null
+      remote_table:
+        name: childService
+        schema: public
 insert_permissions:
 - permission:
     backend_only: false
@@ -32,16 +42,12 @@ select_permissions:
 - permission:
     allow_aggregations: true
     columns:
-    - id
     - firstName
-    - lastName
-    - familyId
-    - createdAt
-    - updatedAt
-    - birthDate
+    - id
     filter: {}
   role: public
 - permission:
+    allow_aggregations: true
     columns:
     - birthDate
     - createdAt
@@ -50,7 +56,11 @@ select_permissions:
     - id
     - lastName
     - updatedAt
-    filter: {}
+    filter:
+      family:
+        members:
+          id:
+            _eq: X-Hasura-User-Id
   role: user
 update_permissions:
 - permission:

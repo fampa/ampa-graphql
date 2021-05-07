@@ -8,27 +8,33 @@ object_relationships:
 select_permissions:
 - permission:
     columns:
-    - id
-    - name
-    - typeId
+    - createdAt
     - description
+    - icon
+    - id
+    - isAvailable
+    - name
     - periodicity
     - price
-    - isAvailable
-    - createdAt
+    - typeId
     - updatedAt
-    filter: {}
+    filter:
+      isAvailable:
+        _eq: true
   role: public
 - permission:
     columns:
-    - isAvailable
-    - id
-    - typeId
-    - price
+    - createdAt
     - description
+    - icon
+    - id
+    - isAvailable
     - name
     - periodicity
-    - createdAt
+    - price
+    - typeId
     - updatedAt
-    filter: {}
+    filter:
+      isAvailable:
+        _eq: true
   role: user

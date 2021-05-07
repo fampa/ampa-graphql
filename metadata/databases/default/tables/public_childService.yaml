@@ -1,0 +1,37 @@
+table:
+  name: childService
+  schema: public
+object_relationships:
+- name: child
+  using:
+    manual_configuration:
+      column_mapping:
+        childId: id
+      insertion_order: null
+      remote_table:
+        name: children
+        schema: public
+- name: service
+  using:
+    manual_configuration:
+      column_mapping:
+        serviceId: id
+      insertion_order: null
+      remote_table:
+        name: services
+        schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - childId
+    - serviceId
+    - createdAt
+    - updatedAt
+    filter:
+      child:
+        family:
+          members:
+            id:
+              _eq: X-Hasura-User-Id
+  role: user

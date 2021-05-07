@@ -12,19 +12,21 @@ array_relationships:
 select_permissions:
 - permission:
     columns:
+    - createdAt
+    - description
+    - icon
     - id
     - name
-    - description
-    - createdAt
     - updatedAt
     filter: {}
   role: public
 - permission:
     columns:
-    - id
-    - description
-    - name
     - createdAt
+    - description
+    - icon
+    - id
+    - name
     - updatedAt
     filter: {}
   role: user
