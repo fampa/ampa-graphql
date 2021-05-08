@@ -10,12 +10,13 @@ select_permissions:
     columns:
     - createdAt
     - description
-    - icon
     - id
+    - image
     - isAvailable
     - name
     - periodicity
     - price
+    - spots
     - typeId
     - updatedAt
     filter:
@@ -26,12 +27,13 @@ select_permissions:
     columns:
     - createdAt
     - description
-    - icon
     - id
+    - image
     - isAvailable
     - name
     - periodicity
     - price
+    - spots
     - typeId
     - updatedAt
     filter:

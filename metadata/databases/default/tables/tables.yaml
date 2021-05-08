@@ -12,3 +12,4 @@
 - "!include public_service_types.yaml"
 - "!include public_services.yaml"
 - "!include public_tags.yaml"
+- "!include public_tags_translations.yaml"

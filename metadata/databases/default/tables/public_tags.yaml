@@ -9,18 +9,21 @@ array_relationships:
       table:
         name: article_tags
         schema: public
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: tagId
+      table:
+        name: tags_translations
+        schema: public
 select_permissions:
 - permission:
     columns:
     - id
-    - nameCa
-    - nameEs
     filter: {}
   role: public
 - permission:
     columns:
     - id
-    - nameCa
-    - nameEs
     filter: {}
   role: user

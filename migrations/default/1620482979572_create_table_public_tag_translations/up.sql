@@ -1,0 +1,1 @@
+CREATE TABLE "public"."tag_translations" ("tagId" integer NOT NULL, "language" text NOT NULL, "name" text NOT NULL, PRIMARY KEY ("tagId","language") , FOREIGN KEY ("tagId") REFERENCES "public"."tags"("id") ON UPDATE cascade ON DELETE cascade);
