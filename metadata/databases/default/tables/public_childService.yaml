@@ -22,6 +22,12 @@ object_relationships:
         schema: public
 select_permissions:
 - permission:
+    columns:
+    - childId
+    - serviceId
+    filter: {}
+  role: public
+- permission:
     allow_aggregations: true
     columns:
     - childId

@@ -5,6 +5,14 @@ object_relationships:
 - name: type
   using:
     foreign_key_constraint_on: typeId
+array_relationships:
+- name: participants
+  using:
+    foreign_key_constraint_on:
+      column: serviceId
+      table:
+        name: childService
+        schema: public
 select_permissions:
 - permission:
     columns:
@@ -39,4 +47,10 @@ select_permissions:
     filter:
       isAvailable:
         _eq: true
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns: []
+    filter: {}
   role: user
