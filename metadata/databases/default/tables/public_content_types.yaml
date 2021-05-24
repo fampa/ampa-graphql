@@ -1,0 +1,3 @@
+table:
+  name: content_types
+  schema: public

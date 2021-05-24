@@ -1,40 +1,44 @@
 table:
-  name: pages
+  name: content
   schema: public
+object_relationships:
+- name: author
+  using:
+    foreign_key_constraint_on: authorId
 array_relationships:
 - name: translations
   using:
-    manual_configuration:
-      column_mapping:
-        id: parentId
-      insertion_order: null
-      remote_table:
-        name: pages_translations
+    foreign_key_constraint_on:
+      column: parentId
+      table:
+        name: content_translations
         schema: public
 select_permissions:
 - permission:
     columns:
+    - authorId
     - createdAt
     - icon
     - id
     - image
     - isMenu
-    - status
+    - isPublished
     - updatedAt
     filter:
-      status:
-        _eq: PUBLISHED
+      isPublished:
+        _eq: true
   role: public
 - permission:
     columns:
+    - authorId
     - createdAt
     - icon
     - id
     - image
     - isMenu
-    - status
+    - isPublished
     - updatedAt
     filter:
-      status:
-        _eq: PUBLISHED
+      isPublished:
+        _eq: true
   role: user
