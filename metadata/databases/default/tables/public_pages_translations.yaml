@@ -10,7 +10,7 @@ computed_fields:
 select_permissions:
 - permission:
     columns:
-    - pageId
+    - parentId
     - language
     - title
     - content
@@ -20,7 +20,7 @@ select_permissions:
   role: public
 - permission:
     columns:
-    - pageId
+    - parentId
     - content
     - language
     - title

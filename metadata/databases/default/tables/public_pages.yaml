@@ -6,7 +6,7 @@ array_relationships:
   using:
     manual_configuration:
       column_mapping:
-        id: pageId
+        id: parentId
       insertion_order: null
       remote_table:
         name: pages_translations

@@ -4,7 +4,7 @@ table:
 object_relationships:
 - name: article
   using:
-    foreign_key_constraint_on: articleId
+    foreign_key_constraint_on: parentId
 - name: languageByLanguage
   using:
     foreign_key_constraint_on: language
@@ -18,7 +18,7 @@ computed_fields:
 select_permissions:
 - permission:
     columns:
-    - articleId
+    - parentId
     - language
     - title
     - content
@@ -28,7 +28,7 @@ select_permissions:
   role: public
 - permission:
     columns:
-    - articleId
+    - parentId
     - content
     - language
     - title
