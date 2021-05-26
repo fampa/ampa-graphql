@@ -6,6 +6,15 @@ object_relationships:
   using:
     foreign_key_constraint_on: authorId
 array_relationships:
+- name: participants
+  using:
+    manual_configuration:
+      column_mapping:
+        id: serviceId
+      insertion_order: null
+      remote_table:
+        name: childService
+        schema: public
 - name: tags
   using:
     foreign_key_constraint_on:
@@ -30,6 +39,8 @@ select_permissions:
     - image
     - isMenu
     - isPublished
+    - price
+    - spots
     - type
     - updatedAt
     filter:
@@ -45,6 +56,8 @@ select_permissions:
     - image
     - isMenu
     - isPublished
+    - price
+    - spots
     - type
     - updatedAt
     filter:
