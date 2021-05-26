@@ -9,13 +9,6 @@ object_relationships:
   using:
     foreign_key_constraint_on: authorId
 array_relationships:
-- name: article_tags
-  using:
-    foreign_key_constraint_on:
-      column: article_id
-      table:
-        name: article_tags
-        schema: public
 - name: translations
   using:
     foreign_key_constraint_on:

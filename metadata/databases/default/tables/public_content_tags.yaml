@@ -1,0 +1,26 @@
+table:
+  name: content_tags
+  schema: public
+object_relationships:
+- name: tag
+  using:
+    manual_configuration:
+      column_mapping:
+        tag_id: id
+      insertion_order: null
+      remote_table:
+        name: content
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - content_id
+    - tag_id
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - content_id
+    - tag_id
+    filter: {}
+  role: user
