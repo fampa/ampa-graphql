@@ -20,6 +20,21 @@ object_relationships:
       remote_table:
         name: content
         schema: public
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      child:
+        family:
+          members:
+            id:
+              _eq: X-Hasura-User-Id
+    columns:
+    - childId
+    - serviceId
+    - createdAt
+    - updatedAt
+  role: user
 select_permissions:
 - permission:
     columns:
@@ -34,6 +49,30 @@ select_permissions:
     - serviceId
     - createdAt
     - updatedAt
+    filter:
+      child:
+        family:
+          members:
+            id:
+              _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - childId
+    - serviceId
+    - createdAt
+    - updatedAt
+    filter:
+      child:
+        family:
+          members:
+            id:
+              _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
     filter:
       child:
         family:
