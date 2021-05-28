@@ -1,6 +1,21 @@
 table:
   name: articles
   schema: public
+object_relationships:
+- name: article_status
+  using:
+    foreign_key_constraint_on: status
+- name: author
+  using:
+    foreign_key_constraint_on: authorId
+array_relationships:
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: parentId
+      table:
+        name: articles_translations
+        schema: public
 select_permissions:
 - permission:
     allow_aggregations: true

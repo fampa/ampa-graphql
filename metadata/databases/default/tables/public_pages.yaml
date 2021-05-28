@@ -1,6 +1,16 @@
 table:
   name: pages
   schema: public
+array_relationships:
+- name: translations
+  using:
+    manual_configuration:
+      column_mapping:
+        id: parentId
+      insertion_order: null
+      remote_table:
+        name: pages_translations
+        schema: public
 select_permissions:
 - permission:
     columns:

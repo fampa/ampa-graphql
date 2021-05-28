@@ -1,0 +1,1 @@
+CREATE TABLE "public"."contentTranslations" ("parentId" integer NOT NULL, "language" text NOT NULL, "title" text, "content" text, PRIMARY KEY ("parentId","language") , FOREIGN KEY ("parentId") REFERENCES "public"."content"("id") ON UPDATE cascade ON DELETE cascade);

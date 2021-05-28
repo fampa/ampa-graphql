@@ -1,6 +1,10 @@
 table:
   name: services
   schema: public
+object_relationships:
+- name: type
+  using:
+    foreign_key_constraint_on: typeId
 select_permissions:
 - permission:
     columns:

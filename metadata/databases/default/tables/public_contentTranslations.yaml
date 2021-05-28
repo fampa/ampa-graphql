@@ -1,0 +1,3 @@
+table:
+  name: contentTranslations
+  schema: public
