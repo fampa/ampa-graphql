@@ -1,0 +1,66 @@
+table:
+  name: content
+  schema: public
+object_relationships:
+- name: author
+  using:
+    foreign_key_constraint_on: authorId
+array_relationships:
+- name: participants
+  using:
+    manual_configuration:
+      column_mapping:
+        id: serviceId
+      insertion_order: null
+      remote_table:
+        name: childService
+        schema: public
+- name: tags
+  using:
+    foreign_key_constraint_on:
+      column: content_id
+      table:
+        name: content_tags
+        schema: public
+- name: translations
+  using:
+    foreign_key_constraint_on:
+      column: parentId
+      table:
+        name: content_translations
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - authorId
+    - createdAt
+    - icon
+    - id
+    - image
+    - isMenu
+    - isPublished
+    - price
+    - spots
+    - type
+    - updatedAt
+    filter:
+      isPublished:
+        _eq: true
+  role: public
+- permission:
+    columns:
+    - authorId
+    - createdAt
+    - icon
+    - id
+    - image
+    - isMenu
+    - isPublished
+    - price
+    - spots
+    - type
+    - updatedAt
+    filter:
+      isPublished:
+        _eq: true
+  role: user

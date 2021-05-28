@@ -1,29 +1,20 @@
 table:
   name: tags
   schema: public
-array_relationships:
-- name: article_tags
-  using:
-    foreign_key_constraint_on:
-      column: tag_id
-      table:
-        name: article_tags
-        schema: public
-- name: translations
-  using:
-    foreign_key_constraint_on:
-      column: tagId
-      table:
-        name: tags_translations
-        schema: public
 select_permissions:
 - permission:
     columns:
+    - icon
     - id
+    - isMenu
+    - type
     filter: {}
   role: public
 - permission:
     columns:
+    - icon
     - id
+    - isMenu
+    - type
     filter: {}
   role: user

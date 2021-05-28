@@ -1,0 +1,1 @@
+DROP FUNCTION public.pagesslugmaker(pages_translations_row pages_translations);

@@ -1,16 +1,6 @@
 table:
   name: pages
   schema: public
-array_relationships:
-- name: translations
-  using:
-    manual_configuration:
-      column_mapping:
-        id: pageId
-      insertion_order: null
-      remote_table:
-        name: pages_translations
-        schema: public
 select_permissions:
 - permission:
     columns:
@@ -18,6 +8,7 @@ select_permissions:
     - icon
     - id
     - image
+    - isMenu
     - status
     - updatedAt
     filter:
@@ -30,6 +21,7 @@ select_permissions:
     - icon
     - id
     - image
+    - isMenu
     - status
     - updatedAt
     filter:

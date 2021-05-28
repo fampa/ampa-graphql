@@ -1,38 +1,20 @@
 table:
   name: articles_translations
   schema: public
-object_relationships:
-- name: article
-  using:
-    foreign_key_constraint_on: articleId
-- name: languageByLanguage
-  using:
-    foreign_key_constraint_on: language
-computed_fields:
-- comment: ""
-  definition:
-    function:
-      name: slugmaker
-      schema: public
-  name: slug
 select_permissions:
 - permission:
     columns:
-    - articleId
+    - parentId
     - language
     - title
     - content
-    computed_fields:
-    - slug
     filter: {}
   role: public
 - permission:
     columns:
-    - articleId
+    - parentId
     - content
     - language
     - title
-    computed_fields:
-    - slug
     filter: {}
   role: user

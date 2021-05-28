@@ -1,0 +1,40 @@
+table:
+  name: content_translations
+  schema: public
+object_relationships:
+- name: parent
+  using:
+    foreign_key_constraint_on: parentId
+computed_fields:
+- definition:
+    function:
+      name: slugger
+      schema: public
+  name: slug
+select_permissions:
+- permission:
+    columns:
+    - parentId
+    - language
+    - title
+    - content
+    computed_fields:
+    - slug
+    filter:
+      parent:
+        isPublished:
+          _eq: true
+  role: public
+- permission:
+    columns:
+    - parentId
+    - content
+    - language
+    - title
+    computed_fields:
+    - slug
+    filter:
+      parent:
+        isPublished:
+          _eq: true
+  role: user

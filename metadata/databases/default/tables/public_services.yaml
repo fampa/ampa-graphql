@@ -1,18 +1,6 @@
 table:
   name: services
   schema: public
-object_relationships:
-- name: type
-  using:
-    foreign_key_constraint_on: typeId
-array_relationships:
-- name: participants
-  using:
-    foreign_key_constraint_on:
-      column: serviceId
-      table:
-        name: childService
-        schema: public
 select_permissions:
 - permission:
     columns:
