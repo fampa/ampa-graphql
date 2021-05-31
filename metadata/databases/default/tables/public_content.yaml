@@ -31,6 +31,7 @@ array_relationships:
         schema: public
 select_permissions:
 - permission:
+    allow_aggregations: true
     columns:
     - authorId
     - createdAt
@@ -48,6 +49,7 @@ select_permissions:
         _eq: true
   role: public
 - permission:
+    allow_aggregations: true
     columns:
     - authorId
     - createdAt

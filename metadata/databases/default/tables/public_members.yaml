@@ -12,12 +12,19 @@ object_relationships:
         name: families
         schema: public
 array_relationships:
-- name: articles
+- name: contents
   using:
     foreign_key_constraint_on:
       column: authorId
       table:
-        name: articles
+        name: content
+        schema: public
+- name: messages
+  using:
+    foreign_key_constraint_on:
+      column: memberId
+      table:
+        name: members_messages
         schema: public
 select_permissions:
 - permission:
@@ -29,6 +36,7 @@ select_permissions:
 - permission:
     allow_aggregations: true
     columns:
+    - canEmail
     - createdAt
     - email
     - familyId
@@ -49,6 +57,7 @@ update_permissions:
 - permission:
     check: null
     columns:
+    - canEmail
     - createdAt
     - email
     - familyId
@@ -65,15 +74,3 @@ update_permissions:
       id:
         _eq: X-Hasura-User-Id
   role: user
-event_triggers:
-- definition:
-    enable_manual: true
-    update:
-      columns:
-      - isAdmin
-  name: change_claims
-  retry_conf:
-    interval_sec: 100
-    num_retries: 3
-    timeout_sec: 60
-  webhook: https://server.ampatacona.com/webhook/change-claims

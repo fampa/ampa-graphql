@@ -1,0 +1,48 @@
+table:
+  name: members_messages
+  schema: public
+object_relationships:
+- name: member
+  using:
+    foreign_key_constraint_on: memberId
+- name: message
+  using:
+    foreign_key_constraint_on: messageId
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      memberId:
+        _eq: X-Hasura-User-Id
+    columns:
+    - read
+    - messageId
+    - memberId
+  role: user
+select_permissions:
+- permission:
+    columns:
+    - memberId
+    - messageId
+    - read
+    filter:
+      memberId:
+        _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - read
+    - messageId
+    - memberId
+    filter:
+      memberId:
+        _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
+    filter:
+      memberId:
+        _eq: X-Hasura-User-Id
+  role: user

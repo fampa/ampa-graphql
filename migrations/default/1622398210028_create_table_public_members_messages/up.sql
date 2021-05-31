@@ -1,0 +1,1 @@
+CREATE TABLE "public"."members_messages" ("messageId" integer NOT NULL, "memberId" text NOT NULL, PRIMARY KEY ("messageId","memberId") , FOREIGN KEY ("messageId") REFERENCES "public"."messages"("id") ON UPDATE cascade ON DELETE cascade, FOREIGN KEY ("memberId") REFERENCES "public"."members"("id") ON UPDATE cascade ON DELETE cascade);

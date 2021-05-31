@@ -1,0 +1,34 @@
+table:
+  name: messages
+  schema: public
+object_relationships:
+- name: status
+  using:
+    manual_configuration:
+      column_mapping:
+        id: messageId
+      insertion_order: null
+      remote_table:
+        name: members_messages
+        schema: public
+array_relationships:
+- name: members_message
+  using:
+    foreign_key_constraint_on:
+      column: messageId
+      table:
+        name: members_messages
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - id
+    - title
+    - content
+    - createdAt
+    - updatedAt
+    filter:
+      members_message:
+        memberId:
+          _eq: X-Hasura-User-Id
+  role: user
