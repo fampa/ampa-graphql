@@ -10,6 +10,10 @@ Ara deurem de deshabilitar l'accés web a la consola. ho podem fer amb una varia
 
 `HASURA_GRAPHQL_ENABLE_CONSOLE=false`
 
+També cal configurar la variable d'entorn:
+
+`FIREBASE_FUNCTIONS_URL` amb la url que ens ha proporcionat la consola de firebase per al nostre _endpoint_ de Firebase Functions.
+
 Instal·lem [Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html#install-hasura-cli)
 
 `npm install --global hasura-cli`

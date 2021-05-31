@@ -11,16 +11,9 @@ object_relationships:
       remote_table:
         name: members_messages
         schema: public
-array_relationships:
-- name: members_message
-  using:
-    foreign_key_constraint_on:
-      column: messageId
-      table:
-        name: members_messages
-        schema: public
 select_permissions:
 - permission:
+    allow_aggregations: true
     columns:
     - id
     - title
@@ -28,7 +21,18 @@ select_permissions:
     - createdAt
     - updatedAt
     filter:
-      members_message:
+      status:
         memberId:
           _eq: X-Hasura-User-Id
   role: user
+event_triggers:
+- definition:
+    enable_manual: false
+    insert:
+      columns: "*"
+  name: new_message
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{FIREBASE_FUNCTIONS_URL}}/webhook/message"

@@ -14,17 +14,15 @@ insert_permissions:
     check:
       memberId:
         _eq: X-Hasura-User-Id
-    columns:
-    - read
-    - messageId
-    - memberId
+    columns: []
   role: user
 select_permissions:
 - permission:
+    allow_aggregations: true
     columns:
-    - memberId
-    - messageId
     - read
+    - messageId
+    - memberId
     filter:
       memberId:
         _eq: X-Hasura-User-Id
