@@ -19,13 +19,6 @@ array_relationships:
       table:
         name: content
         schema: public
-- name: messages
-  using:
-    foreign_key_constraint_on:
-      column: memberId
-      table:
-        name: members_messages
-        schema: public
 select_permissions:
 - permission:
     columns:

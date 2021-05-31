@@ -1,12 +1,6 @@
 table:
   name: pages_translations
   schema: public
-computed_fields:
-- definition:
-    function:
-      name: pagesslugmaker
-      schema: public
-  name: slug
 select_permissions:
 - permission:
     columns:
@@ -14,8 +8,6 @@ select_permissions:
     - language
     - title
     - content
-    computed_fields:
-    - slug
     filter: {}
   role: public
 - permission:
@@ -24,7 +16,5 @@ select_permissions:
     - content
     - language
     - title
-    computed_fields:
-    - slug
     filter: {}
   role: user

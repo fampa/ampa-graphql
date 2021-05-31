@@ -6,5 +6,3 @@
 - "!include public_families.yaml"
 - "!include public_languages.yaml"
 - "!include public_members.yaml"
-- "!include public_members_messages.yaml"
-- "!include public_messages.yaml"
