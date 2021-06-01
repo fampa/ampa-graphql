@@ -1,0 +1,1 @@
+CREATE TABLE "public"."members_tokens" ("memberId" text NOT NULL, "token" text NOT NULL, PRIMARY KEY ("memberId","token") , FOREIGN KEY ("memberId") REFERENCES "public"."members"("id") ON UPDATE cascade ON DELETE cascade);

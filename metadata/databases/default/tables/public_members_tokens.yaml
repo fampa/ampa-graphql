@@ -1,0 +1,39 @@
+table:
+  name: members_tokens
+  schema: public
+insert_permissions:
+- permission:
+    backend_only: false
+    check:
+      memberId:
+        _eq: X-Hasura-User-Id
+    columns:
+    - memberId
+    - token
+  role: user
+select_permissions:
+- permission:
+    columns:
+    - createdAt
+    - memberId
+    - token
+    filter:
+      memberId:
+        _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - memberId
+    - token
+    filter:
+      memberId:
+        _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
+    filter:
+      memberId:
+        _eq: X-Hasura-User-Id
+  role: user

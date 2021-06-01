@@ -1,6 +1,16 @@
 table:
   name: families
   schema: public
+object_relationships:
+- name: owner
+  using:
+    manual_configuration:
+      column_mapping:
+        ownerId: id
+      insertion_order: null
+      remote_table:
+        name: members
+        schema: public
 array_relationships:
 - name: children
   using:
