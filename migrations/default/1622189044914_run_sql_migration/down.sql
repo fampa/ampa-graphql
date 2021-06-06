@@ -1,3 +1,0 @@
--- Could not auto-generate a down migration.
--- Please write an appropriate down migration for the SQL below:
--- DROP FUNCTION public.slugmaker(articles_translations_row articles_translations);

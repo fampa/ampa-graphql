@@ -1,1 +1,0 @@
-DROP FUNCTION public.slugmaker(articles_translations_row articles_translations);
