@@ -6,7 +6,7 @@ Recomanable fer-ho amb docker al vostre propi servidor o VPS, però també podeu
 
 Una vegada instal·lat tindrem un _endpoint_ que necessitarem per configurar la migració.
 
-Ara deurem de deshabilitar l'accés web a la consola. ho podem fer amb una variable d'entorn:
+Ara deurem de deshabilitar l'accés web a la consola. ho podem fer amb una variable d'entorn al servidor:
 
 `HASURA_GRAPHQL_ENABLE_CONSOLE=false`
 
