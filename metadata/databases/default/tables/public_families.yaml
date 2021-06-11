@@ -38,8 +38,11 @@ insert_permissions:
     - createdAt
     - iban
     - id
+    - mandateDate
+    - mandateId
     - name
     - ownerId
+    - signatureDate
     - updatedAt
   role: user
 select_permissions:
@@ -56,8 +59,11 @@ select_permissions:
     - createdAt
     - iban
     - id
+    - mandateDate
+    - mandateId
     - name
     - ownerId
+    - signatureDate
     - updatedAt
     filter:
       members:
@@ -68,11 +74,14 @@ update_permissions:
 - permission:
     check: null
     columns:
-    - createdAt
-    - iban
+    - mandateDate
+    - signatureDate
     - id
+    - iban
+    - mandateId
     - name
     - ownerId
+    - createdAt
     - updatedAt
     filter:
       members:
