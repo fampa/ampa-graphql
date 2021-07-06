@@ -54,12 +54,12 @@ I una altra extensió necessària per a fer els _slug_ a partir dels títols del
 
 I ja podem iniciar la migració de les metadades i de les taules, així com el seed de les taules de tipus _enum_:
 
-`hasura metadata apply`
+`hasura metadata apply` or `hasura metadata apply --endpoint https://yourhasura.url`
 
-`hasura migrate apply --database-name default`
+`hasura migrate apply --database-name default` or `hasura migrate apply --database-name default --endpoint https://yourhasura.url`
 
 `hasura seed apply --database-name default`
 
-`hasura metadata reload`
+`hasura metadata reload` or `hasura metadata reload --endpoint https://yourhasura.url`
 
 Per a eliminar un usuari és recomana fer-ho des de Firebase ja que això provocarà una reacció en cadena a la base de dades on esborrarà automàticament totes les seues dades.
