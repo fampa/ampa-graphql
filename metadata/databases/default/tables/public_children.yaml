@@ -50,11 +50,11 @@ select_permissions:
     allow_aggregations: true
     columns:
     - birthDate
-    - createdAt
     - familyId
-    - firstName
     - id
+    - firstName
     - lastName
+    - createdAt
     - updatedAt
     filter:
       family:
